@@ -1,0 +1,11 @@
+PASOS PARA TFG (18 mayo fecha limite)
+
+-primero api rest sencilla (crud)
+-segundo implementar bien los metodos con react y que se pinten
+-tercero pulir de cara a back
+
+
+Opcionales:
+inicio de sesion:
+pulir front
+implementar menu -- mejorar con algoritmos

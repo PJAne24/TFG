@@ -1,0 +1,29 @@
+.distri{
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.menu{
+    height: 93vh;
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    background-color: rgb(214, 214, 214);
+}
+
+h3 a{
+    color: black;
+    text-decoration: none;
+}
+
+
+/* .uno{
+    height: fit-content;
+    width: 100%;
+}
+
+
+.dos{
+    height: fit-content;
+    width: 100%;
+} */
