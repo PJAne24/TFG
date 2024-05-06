@@ -95,7 +95,7 @@ const menuPrincipal = () => {
                             <button type="submit">Agregar tarea</button>
                         </form>
                     </div>
-                    <div>
+                    <div className="pendingTasks">
                         <h2>Tareas pendientes...</h2>
                         {tasks.map(task => (
                             <div key={task._id}>
