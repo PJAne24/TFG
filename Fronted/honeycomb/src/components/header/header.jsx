@@ -1,19 +1,30 @@
-import { Link } from "react-router-dom"
-import "./header.css"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Logo from '../../assets/Logo.png'
+import "./header.css";
 
-const header = () => {
+const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    return (
-      <header className="centrar">
-        <nav>
-            <ul>
-                <li><Link to="/">Inicio</Link></li>
-                <li><Link to="/admin">Panel de Control</Link></li>
-                <li><Link to="/sesion">Iniciar sesión</Link></li>
-            </ul>
-        </nav>
-      </header>
-    )
-  }
-  
-export default header
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  return (
+    <header>
+      <nav>
+          <button className="menu-btn centrar" onClick={toggleMenu}>☰</button>
+        <ul className={menuOpen ? "camposMenu active" : "camposMenu"}>
+          <li><Link to="/">Inicio</Link></li>
+          <li><Link to="/admin">Panel de Control</Link></li>
+          <li><Link to="/sesion">Sesión</Link></li>
+        </ul>
+        <div>
+          <img src={Logo} alt="Logo honeycomb" id="Logo" />
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+export default Header;

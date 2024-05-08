@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Header from '../components/header/header'
-import './toDo/toDo.css'
-import ToDo from './toDo/toDo'
-import Calendario from './calendario'
-import Notas from './notas'
+import Header from '../../components/header/header'
+import './index.css'
+import ToDo from '../toDo/toDo'
+import Calendario from '../calendario'
+import Notas from '../notas'
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState('menu'); // Estado para controlar qué página se muestra
@@ -37,10 +37,9 @@ const Index = () => {
 
   return (
     <>
-    <Header/>
-      <div className="distri">
+      <Header />
+      <div className="body">
         <section className="uno">
-          <h2>Menu de la izquierda</h2>
           <div className="menu">
             <div>
               <button onClick={pagToDo}>To do</button>
@@ -49,11 +48,13 @@ const Index = () => {
               <button onClick={pagCalendario}>Calendario</button>
             </div>
             <div>
-              <button onClick={pagNotas}>Notas</button>
+              <button className='bn5' onClick={pagNotas}>Notas</button>
             </div>
           </div>
         </section>
-        <section>{renderPage()}</section>
+        <section className="derecha">
+          {renderPage()}
+        </section>
       </div>
     </>
   );

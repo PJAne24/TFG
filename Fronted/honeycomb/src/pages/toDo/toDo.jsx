@@ -74,42 +74,49 @@ const menuPrincipal = () => {
 
 
     return (
-        <>
-            <div className="dos">
-                <h1>Pagina principal</h1>
-                <div>
-                    <h1>{title}</h1><button onClick={cambiarTitulo}>editar</button>
+        <div className="container">
+            <span>Página principal</span>
 
-                    <h2>{subtitulo}</h2><button onClick={cambiarSubtitulo}>editar</button>
-                    <div>
-                        <h1>Tareas</h1>
-                        <form onSubmit={handleSubmit}>
-                            <label>
-                                Título de la tarea:
-                                <input type="text" name="taskTitle" value={formData.taskTitle} onChange={handleChange} />
-                            </label>
-                            <label>
-                                Descripción de la tarea:
-                                <textarea name="taskDescription" value={formData.taskDescription} onChange={handleChange} />
-                            </label>
-                            <button type="submit">Agregar tarea</button>
-                        </form>
-                    </div>
-                    <div className="pendingTasks">
-                        <h2>Tareas pendientes...</h2>
-                        {tasks.map(task => (
-                            <div key={task._id}>
-                                <span>({task.id})</span>
-                                <h3>{task.title}</h3>
-                                <p>{task.description}</p>
-                                <p>{task.priority ? "Prioritario" : "No prioritario"}</p>
-                            </div>
-                        ))}
-                    </div>
-
+            <div>
+                <div className="modificacion">
+                    <h1>{title}</h1>
+                    <button onClick={cambiarTitulo}>editar</button>
                 </div>
+
+                <div className="modificacion">
+                    <h3>{subtitulo}</h3>
+                    <button onClick={cambiarSubtitulo}>editar</button>
+                </div>
+
+                <div className="tareas">
+                    <h2>Tareas</h2>
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            Título de la tarea:
+                            <input type="text" name="taskTitle" value={formData.taskTitle} onChange={handleChange} />
+                        </label>
+                        <label>
+                            Descripción de la tarea:
+                            <textarea name="taskDescription" value={formData.taskDescription} onChange={handleChange} />
+                        </label>
+                        <button type="submit">Agregar tarea</button>
+                    </form>
+                </div>
+                <div className="pendingTasks">
+                    <h2>Tareas pendientes...</h2>
+                    {tasks.map(task => (
+                        <div key={task._id}>
+                            <span>({task.id})</span>
+                            <h3>{task.title}</h3>
+                            <p>{task.description}</p>
+                            <p>{task.priority ? "Prioritario" : "No prioritario"}</p>
+                        </div>
+                    ))}
+                </div>
+
             </div>
-        </>
+
+        </div>
     )
 
 }

@@ -4,9 +4,10 @@ import './main.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import Index from './pages/index'
+import Index from './pages/index/index.jsx'
 import Calendario from './pages/calendario'
 import PanelControl from './admin/panelControl'
+import Login from './pages/login.jsx'
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
   {
     "path": "/admin",
     "element": <PanelControl />
+  }
+  ,
+  {
+    "path": "/sesion",
+    "element": <Login />
   }
 ]);
 

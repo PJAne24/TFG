@@ -1,0 +1,81 @@
+
+.form {
+    --input-focus:  rgb(204, 122, 0);
+    --font-color: #323232;
+    --font-color-sub: #666;
+    --bg-color: #fff;
+    --main-color: #323232;
+    padding: 20px;
+    background: rgb(249, 255, 143);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    width: fit-content;
+    margin: 0 auto;
+    top: 30%;
+    left: 45%;
+    position: absolute;
+  }
+  
+  .title {
+    color: var(--font-color);
+    font-weight: 900;
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .title span {
+    color: var(--font-color-sub);
+    font-weight: 600;
+    font-size: 17px;
+  }
+  
+  .input {
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color);
+    padding: 5px 10px;
+    outline: none;
+  }
+  
+  .input::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+  }
+  
+  .input:focus {
+    border: 2px solid var(--input-focus);
+  }
+  
+  
+  .button-confirm {
+    margin: 50px auto 0 auto;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--font-color);
+    cursor: pointer;
+  }
+
+  .button-confirm:active {
+    background-color: yellow;
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+  }
+  
