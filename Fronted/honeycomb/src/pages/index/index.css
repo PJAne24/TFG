@@ -1,11 +1,11 @@
 .body {
     display: grid;
-    min-height: 100vh;
+    min-height: calc(100vh - 10vh);
     grid-template-rows: auto;
-    /* Ajustar filas automáticamente */
     grid-template-columns: 15% auto;
-    background-color: #f5b013e0;
+    background-color: #956700e0;
 }
+
 
 .derecha {
     width: 70%;
@@ -23,7 +23,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 85vh;
     position: sticky;
-    top: calc(50vh - 300px);
+    top: calc(47vh - 40vh);
     border-radius: 36px;
     display: grid;
     grid-template-rows: repeat(3, auto);
@@ -33,7 +33,7 @@
     margin: 20px;
     transition: top 0.5s ease-in-out;
     padding: 1rem;
-    box-shadow: 18px 10px white;
+    box-shadow: 15px 15px white;
     font-weight: 100;
 
     button {
@@ -52,8 +52,7 @@
         height: 2px;
         display: block;
         content: "";
-        background: linear-gradient(-90deg, #ff9100 0%, #f10366 50%, #6173ff 100%);
-        opacity: 0;
+        background: linear-gradient(270deg, rgba(248,211,1,1) 8%, rgba(249,201,1,1) 29%, rgba(195,140,9,1) 51%, rgba(152,91,16,1) 76%, rgba(107,71,1,1) 94%);        opacity: 0;
         margin-bottom: -6px;
         margin-top: 1px;
         transition: opacity 0.3s ease-in-out;

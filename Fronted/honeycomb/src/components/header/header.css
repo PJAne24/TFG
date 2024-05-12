@@ -27,7 +27,7 @@ header nav ul {
     li a {
         color:#fff8aabd;
         text-decoration: none;
-        font-size: 2.5vh;
+        font-size: 2.2vh;
         transition: color 0.5s, text-shadow 0.5s;
         font-weight: 100;
     }
@@ -41,6 +41,7 @@ header nav ul {
 #Logo {
     height: 60px;
     width: 60px;
+    margin-right: 3rem;
 }
 
 .menu-btn {

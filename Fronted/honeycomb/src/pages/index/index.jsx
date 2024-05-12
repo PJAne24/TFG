@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/header/header';
-import ToDo from '../toDo/toDo';
+// import ToDo from '../toDo/toDo';
+import ToDoTest from '../toDo/toDoTest';
 import Calendario from '../calendario';
 import Notas from '../notas';
 import ToDO from '../../assets/toDO.png'
@@ -28,10 +29,6 @@ const Index = () => {
     };
   }, []);
 
-  const pagToDo = () => {
-    setCurrentPage('todo');
-  };
-
   const pagCalendario = () => {
     setCurrentPage('calendario');
   };
@@ -42,14 +39,10 @@ const Index = () => {
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'todo':
-        return <ToDo />;
       case 'calendario':
         return <Calendario />;
       case 'notas':
         return <Notas />;
-      default:
-        return <ToDo />;
     }
   };
 
@@ -61,7 +54,7 @@ const Index = () => {
           <div className="menu">
           <span id="general">General</span>
             <div>
-              <button onClick={pagToDo}><img src={ToDO} alt="" className='icons' />   To do</button>
+              <button ><img src={ToDO} alt="" className='icons' />   To do</button>
             </div>
             <div>
               <button onClick={pagCalendario}><img src={calendar} alt="" className='icons' />  Calendar</button>
@@ -71,8 +64,12 @@ const Index = () => {
             </div>
           </div>
         </section>
-        <section className="derecha">
+        <section >
+          <ToDoTest/>
+          
+          {/* <div className="derecha">
           {renderPage()}
+          </div> */}
         </section>
       </div>
     </>

@@ -1,0 +1,41 @@
+.hexagon {
+    position: relative;
+    width: 280px;
+    height: 215px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: #FF6B01;
+    background: radial-gradient(at center,#e1cf93 1%, #ff7d20c8 40%, #fff200 );
+    filter: blur(25px);
+}
+.hexagonBack {
+    position: relative;
+    width: 325px;
+    height: 250px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background-color: #ffdd6d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+    /* opacity: .5; */
+    
+}
+.hexagonBack:hover{
+    transform: scale3d(1.5, 1.5, 1.5);
+    filter: brightness(60%); /* Aplicar un filtro de brillo al 0% */
+    z-index: 1;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+div .uno{
+    position: relative;
+}
+div .dos{
+    position: absolute;
+    top: 23vh;
+    left: 61.4vw;
+}
