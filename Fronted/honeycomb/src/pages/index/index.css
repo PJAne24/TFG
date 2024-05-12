@@ -1,8 +1,8 @@
 .body {
     display: grid;
-    max-height: 100%;
+    min-height: 100vh;
     grid-template-rows: auto; /* Ajustar filas automáticamente */
-    grid-template-columns: 15% 1fr;
+    grid-template-columns: 11% 1fr;
     background-color: #EA9D3E;
 }
 

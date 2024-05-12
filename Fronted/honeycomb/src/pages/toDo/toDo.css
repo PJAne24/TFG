@@ -57,11 +57,65 @@
     }
 }
 
-.modificacion{
+.modificacion {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2rem;
+}
+
+#note {
+    position: absolute;
+    top: 43%;
+    left: 32%;
+    height: 30rem;
+}
+#note2 {
+    position: absolute;
+    top: 43%;
+    left: 60.5%;
+    height: 30rem;
+}
+
+#marcador{
+    width: fit-content;
+    position: absolute;
+    height: 10em;
+    left: 32%;
+    top: 15%;
+}
+
+.tareasDivision{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: auto;
+    height: 50em;
+}
+
+.tareas {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    border-radius: 20px;
+    width: fit-content;
+    padding: 1.2rem;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    h2 {
+        background-color: #000000;
+        width: 100%;
+        text-align: center;
+    }
+
+    div {
+        position: relative;
+        top: 32%;
+        left: 74%;
+        z-index: 1;
+    }
+
 }
 
 form {
@@ -75,11 +129,15 @@ label {
 }
 
 .pendingTasks {
+    display: grid;
     margin-top: 2rem;
+    color: white;
 
     h2 {
         font-size: 1.5rem;
+        text-align: center;
         margin-bottom: 1rem;
+        background-color: #000000;
     }
 
     div {
@@ -102,6 +160,11 @@ label {
         color: #777;
         margin-bottom: 0.5rem;
     }
+
+    background-color: #4e5ad1;
+    border-radius: 20px;
+    width: fit-content;
+    padding: 1.2rem;
 }
 
 @media only screen and (max-width: 600px) {
