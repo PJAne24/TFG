@@ -1,7 +1,6 @@
 import "./toDo.css"
 import { React, useState, useEffect } from "react";
 import axios from "axios"
-import background from '../../assets/post.png'
 import Marcador from '../../assets/929420.png'
 
 
@@ -105,7 +104,6 @@ const menuPrincipal = () => {
                                 <button type="submit">Agregar tarea</button>
                             </form>
                         </div>
-                        <img src={background} alt="note" id="note" />
                     </div>
                     <div className="tareas">
                         <div>
@@ -122,7 +120,6 @@ const menuPrincipal = () => {
                                 <button type="submit">Eliminar tarea</button>
                             </form>
                         </div>
-                        <img src={background} alt="note" id="note2" />
                     </div>
                 </div>
 

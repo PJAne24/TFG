@@ -1,14 +1,33 @@
-import React, { useState } from 'react';
-import Header from '../../components/header/header'
-import './index.css'
-import ToDo from '../toDo/toDo'
-import Calendario from '../calendario'
-import Notas from '../notas'
+import React, { useState, useEffect } from 'react';
+import Header from '../../components/header/header';
+import ToDo from '../toDo/toDo';
+import Calendario from '../calendario';
+import Notas from '../notas';
+import ToDO from '../../assets/toDO.png'
+import calendar from '../../assets/calendar.png'
+import notes from '../../assets/notes.png'
+import './index.css';
 
 const Index = () => {
-  const [currentPage, setCurrentPage] = useState('menu'); // Estado para controlar qué página se muestra
+  const [currentPage, setCurrentPage] = useState('menu');
+  const [scrolled, setScrolled] = useState(false);
 
-  // Funciones para cambiar la página actual
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const pagToDo = () => {
     setCurrentPage('todo');
   };
@@ -21,7 +40,6 @@ const Index = () => {
     setCurrentPage('notas');
   };
 
-  // Función para renderizar la página correspondiente
   const renderPage = () => {
     switch (currentPage) {
       case 'todo':
@@ -38,17 +56,18 @@ const Index = () => {
   return (
     <>
       <Header />
-      <div className="body">
+      <div className={`body ${scrolled ? 'scrolled' : ''}`}>
         <section className="uno">
           <div className="menu">
+          <span id="general">General</span>
             <div>
-              <button onClick={pagToDo}>To do</button>
+              <button onClick={pagToDo}><img src={ToDO} alt="" className='icons' />   To do</button>
             </div>
             <div>
-              <button onClick={pagCalendario}>Calendario</button>
+              <button onClick={pagCalendario}><img src={calendar} alt="" className='icons' />  Calendar</button>
             </div>
             <div>
-              <button className='bn5' onClick={pagNotas}>Notas</button>
+              <button className='bn5' onClick={pagNotas}><img src={notes} alt="" className='icons' />   Notes</button>
             </div>
           </div>
         </section>

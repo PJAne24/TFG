@@ -64,25 +64,12 @@
     margin: 2rem;
 }
 
-#note {
-    position: absolute;
-    top: 43%;
-    left: 32%;
-    height: 30rem;
-}
-#note2 {
-    position: absolute;
-    top: 43%;
-    left: 60.5%;
-    height: 30rem;
-}
-
 #marcador{
     width: fit-content;
     position: absolute;
     height: 10em;
-    left: 32%;
-    top: 15%;
+    left: 2vw;
+    top: 0vh;
 }
 
 .tareasDivision{
@@ -111,8 +98,8 @@
 
     div {
         position: relative;
-        top: 32%;
-        left: 74%;
+        top: 14vh;
+        left: 4.5vw;
         z-index: 1;
     }
 
