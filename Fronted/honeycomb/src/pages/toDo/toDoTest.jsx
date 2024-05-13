@@ -17,10 +17,6 @@ const toDoTest = () => {
                     <div className='hexagon'>
                     </div>
                 </div>
-                <div className="hexagonBack">
-                    <div className='hexagon'>
-                    </div>
-                </div>
             </div>
             <div className='dos'>
                 <div className="hexagonBack">
@@ -31,16 +27,8 @@ const toDoTest = () => {
                     <div className='hexagon'>
                     </div>
                 </div>
-                <div className="hexagonBack">
-                    <div className='hexagon'>
-                    </div>
-                </div>
             </div>
             <div className='dos' id="dos-dos">
-                <div className="hexagonBack">
-                    <div className='hexagon'>
-                    </div>
-                </div>
                 <div className="hexagonBack">
                     <div className='hexagon'>
                     </div>

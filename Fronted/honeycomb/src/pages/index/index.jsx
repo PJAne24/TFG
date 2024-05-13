@@ -7,6 +7,7 @@ import Notas from '../notas';
 import ToDO from '../../assets/toDO.png'
 import calendar from '../../assets/calendar.png'
 import notes from '../../assets/notes.png'
+import sesion from '../../assets/sesion.png'
 import './index.css';
 
 
@@ -53,6 +54,9 @@ const Index = () => {
         <section className="uno">
           <div className="menu">
           <span id="general">General</span>
+            <div>
+              <button className='bn5' onClick={pagNotas}><img src={sesion} alt="" className='icons' />   Profile</button>
+            </div>
             <div>
               <button ><img src={ToDO} alt="" className='icons' />   To do</button>
             </div>
