@@ -3,10 +3,10 @@
     width: 280px;
     height: 215px;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    background: #FF6B01;
-    background: radial-gradient(at center, #e1cf93 1%, #ff7d20c8 40%, #fff200);
+    background: radial-gradient(at center, #e1cf93 1%, #ff7d20c8 40%, #fff200), #FF6B01;
     filter: blur(25px);
 }
+
 
 .hexagonBack {
     position: relative;
@@ -19,14 +19,23 @@
     align-items: center;
     transition: .5s;
     margin: 5px;
-
+    overflow: hidden;
+    /* Evitar que el título se desborde */
 }
 
 .hexagonBack:hover {
     transform: scale3d(1.5, 1.5, 1.5);
-    filter: brightness(60%);
-    /* Aplicar un filtro de brillo al 0% */
     z-index: 1;
+    
+    .titleHexagon {
+        opacity: 1;
+        text-shadow: 0px 0px 30px white;
+    }
+}
+
+.hexagonBack:hover .hexagon {
+    filter: blur(0px);
+    transition: .3s;
 }
 
 .container {
@@ -50,3 +59,21 @@
 #dos-dos {
     left: 80px;
 }
+
+.titleHexagon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #000000;
+    /* Cambiar el color del texto a blanco */
+    font-weight: bold;
+    opacity: 0;
+    /* Ocultar inicialmente el título */
+    transition: opacity 0.3s ease;
+    /* Agregar transición de opacidad */
+}
+
+/* .hexagonBack:hover .title {
+    opacity: 1; /* Mostrar el título al hacer hover */
