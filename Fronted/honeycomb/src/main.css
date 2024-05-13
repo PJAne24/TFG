@@ -7,4 +7,6 @@
 #root{
     font-family: monospace;
     min-height: 100vh;
+     padding: 50px;
+    /*background: #231000; */
 }
