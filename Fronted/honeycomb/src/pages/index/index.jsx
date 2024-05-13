@@ -9,6 +9,7 @@ import calendar from '../../assets/calendar.png'
 import notes from '../../assets/notes.png'
 import './index.css';
 
+
 const Index = () => {
   const [currentPage, setCurrentPage] = useState('menu');
   const [scrolled, setScrolled] = useState(false);
@@ -48,7 +49,6 @@ const Index = () => {
 
   return (
     <>
-      <Header />
       <div className={`body ${scrolled ? 'scrolled' : ''}`}>
         <section className="uno">
           <div className="menu">
@@ -66,10 +66,6 @@ const Index = () => {
         </section>
         <section >
           <ToDoTest/>
-          
-          {/* <div className="derecha">
-          {renderPage()}
-          </div> */}
         </section>
       </div>
     </>

@@ -4,9 +4,10 @@
     height: 215px;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     background: #FF6B01;
-    background: radial-gradient(at center,#e1cf93 1%, #ff7d20c8 40%, #fff200 );
+    background: radial-gradient(at center, #e1cf93 1%, #ff7d20c8 40%, #fff200);
     filter: blur(25px);
 }
+
 .hexagonBack {
     position: relative;
     width: 325px;
@@ -18,24 +19,33 @@
     align-items: center;
     transition: .5s;
     /* opacity: .5; */
-    
+
 }
-.hexagonBack:hover{
+
+.hexagonBack:hover {
     transform: scale3d(1.5, 1.5, 1.5);
-    filter: brightness(60%); /* Aplicar un filtro de brillo al 0% */
+    filter: brightness(60%);
+    /* Aplicar un filtro de brillo al 0% */
     z-index: 1;
 }
 
-.container{
+.container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
-div .uno{
-    position: relative;
-}
-div .dos{
+
+.container .uno {
     position: absolute;
-    top: 23vh;
-    left: 61.4vw;
+}
+
+.container .dos {
+    position: relative;
+    top: 125px;
+    right: 81px;
+}
+
+#dos-dos {
+    left: 81px;
 }

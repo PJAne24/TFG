@@ -36,6 +36,20 @@ const toDoTest = () => {
                     </div>
                 </div>
             </div>
+            <div className='dos' id="dos-dos">
+                <div className="hexagonBack">
+                    <div className='hexagon'>
+                    </div>
+                </div>
+                <div className="hexagonBack">
+                    <div className='hexagon'>
+                    </div>
+                </div>
+                <div className="hexagonBack">
+                    <div className='hexagon'>
+                    </div>
+                </div>
+            </div>
         </div>
         </>
     );

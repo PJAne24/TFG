@@ -1,6 +1,6 @@
 .body {
     display: grid;
-    min-height: calc(100vh - 10vh);
+    min-height: 100vh;
     grid-template-rows: auto;
     grid-template-columns: 15% auto;
     background-color: #956700e0;
@@ -27,7 +27,7 @@
     border-radius: 36px;
     display: grid;
     grid-template-rows: repeat(3, auto);
-    background-color: #2a2106;
+    background-color: #000000;
     align-items: center;
     align-content: center;
     margin: 20px;
