@@ -1,7 +1,7 @@
 import "./toDo.css"
 import { React, useState, useEffect } from "react";
 import axios from "axios"
-import Marcador from '../../assets/929420.png'
+import Header from "../../components/header/header.jsx"
 
 
 const SERVER_URL = "http://localhost:4444";
@@ -75,69 +75,58 @@ const menuPrincipal = () => {
 
 
     return (
-        <div className="container">
-            <img src={Marcador} alt="Marcador de páginas" id="marcador" />
-
-            <div>
-                <div className="modificacion">
-                    <h1>{title}</h1>
-                    <button onClick={cambiarTitulo}>editar</button>
-                </div>
-
-                <div className="modificacion">
-                    <h3>{subtitulo}</h3>
-                    <button onClick={cambiarSubtitulo}>editar</button>
-                </div>
-                <div className="tareasDivision">
-                    <div className="tareas">
-                        <div>
-                            <h2>Crear tareas</h2>
-                            <form onSubmit={handleSubmit}>
-                                <label>
-                                    Título de la tarea: <br />
-                                    <input type="text" name="taskTitle" value={formData.taskTitle} onChange={handleChange} />
-                                </label>
-                                <label>
-                                    Descripción de la tarea: <br />
-                                    <textarea name="taskDescription" value={formData.taskDescription} onChange={handleChange} />
-                                </label>
-                                <button type="submit">Agregar tarea</button>
-                            </form>
-                        </div>
+        <>
+            <Header />
+            <div className="containerToDo">
+                <div>
+                    <div className="modificacion">
+                        <h1>{title}</h1>
+                        <button onClick={cambiarTitulo}>editar</button>
                     </div>
-                    <div className="tareas">
-                        <div>
-                            <h2>Eliminar tareas</h2>
-                            <form>
-                                <label>
-                                    Título de la tarea: <br />
-                                    <input type="text" />
-                                </label>
-                                <label>
-                                    Descripción de la tarea: <br />
-                                    <textarea name="taskDescription" />
-                                </label>
-                                <button type="submit">Eliminar tarea</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
 
-                <div className="pendingTasks">
-                    <h2>Tablero de tareas</h2>
-                    {tasks.map(task => (
-                        <div key={task._id}>
-                            <span>({task.id})</span>
-                            <h3>{task.title}</h3>
-                            <p>{task.description}</p>
-                            <p>{task.priority ? "Prioritario" : "No prioritario"}</p>
+                    <div className="modificacion">
+                        <h3>{subtitulo}</h3>
+                        <button onClick={cambiarSubtitulo}>editar</button>
+                    </div>
+                    <div className="mitades">
+                        <div className="tareasDivision">
+                            <div className="tareas">
+                                <div>
+                                    <h2>Crear tareas</h2>
+                                    <form onSubmit={handleSubmit}>
+                                        <label>
+                                            Título de la tarea: <br />
+                                            <input type="text" name="taskTitle" value={formData.taskTitle} onChange={handleChange} />
+                                        </label>
+                                        <label>
+                                            Descripción de la tarea: <br />
+                                            <textarea name="taskDescription" value={formData.taskDescription} onChange={handleChange} />
+                                        </label>
+                                        <button type="submit">Agregar tarea</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                    ))}
+
+                        <div className="pendingTasks">
+                            <h2>Tablero de tareas</h2>
+                            {tasks.map(task => (
+                                <div key={task._id}>
+                                    <span>({task.id})</span>
+                                    <h3>{task.title}</h3>
+                                    <p>{task.description}</p>
+                                    <p>{task.priority ? "Prioritario" : "No prioritario"}</p>
+                                    <button>Eliminar tarea</button>
+                                </div>
+                            ))}
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
-
-        </div>
+        </>
     )
 
 }

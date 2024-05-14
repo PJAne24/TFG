@@ -3,6 +3,7 @@
     min-height: 100vh;
     grid-template-rows: auto;
     grid-template-columns: 15% auto;
+    padding: 50px;
     /* background-color: #231000f2; */
 }
 
@@ -23,7 +24,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 85vh;
     position: sticky;
-    top: calc(47vh - 40vh);
     border-radius: 36px;
     display: grid;
     grid-template-rows: repeat(3, auto);
@@ -35,6 +35,7 @@
     padding: 1rem;
     box-shadow: 15px 15px 12px 0px #000000;
     font-weight: 100;
+    position: relative;
 
     button {
         background: none;
@@ -65,6 +66,14 @@
     div button{
         margin: .2rem;
     }
+
+    #logo{
+        height: 100px;
+        width: auto;
+        position: absolute;
+        top: 8%;
+        left: 27%;
+    }
 }
 
 #general {
@@ -82,17 +91,6 @@
     width: 20px;
     height: auto;
     filter: brightness(0) invert(1);
-}
-
-/* Define la animación */
-@keyframes OpenSlideDown {
-    0% {
-        transform: translateY(-100%);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
 }
 
 

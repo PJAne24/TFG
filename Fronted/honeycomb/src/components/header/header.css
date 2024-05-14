@@ -2,8 +2,7 @@ header {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     height: 10vh;
-    background-color: #44350b;
-    box-shadow: 1px 20px 20px 0px #ff0000;
+    background-color: #141107;
     align-items: center;
 
     nav {

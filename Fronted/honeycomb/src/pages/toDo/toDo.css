@@ -1,163 +1,107 @@
-.container {
-
+.containerToDo {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255 200 0 / 72%);
+    
+    .mitades{
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+    
+    h1, h3 {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-weight: bold;
+        color: #ffffff;
+    }
+    
     h1 {
         font-size: 2rem;
+        margin-bottom: 1rem;
     }
-
+    
     h2 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
+        color: #333; 
     }
-
-    input[type="text"],
-    textarea {
-        max-width: 100%;
-        padding: 0.5rem;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    button {
-        background-color: #ff9100;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        font-weight: bold;
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-        margin-left: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-        background-color: #f77a00;
-    }
-
-    button:focus {
-        outline: none;
-    }
-
-    button[type="submit"] {
-        width: fit-content;
-        background-color: #6173ff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        font-weight: bold;
-        font-size: 1rem;
-        padding: 0.5rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    button[type="submit"]:hover {
-        background-color: #4e5ad1;
-    }
-}
-
-.modificacion {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem;
-}
-
-#marcador{
-    width: fit-content;
-    position: absolute;
-    height: 10em;
-    left: 2vw;
-    top: 0vh;
-}
-
-.tareasDivision{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    width: auto;
-    height: 50em;
-}
-
-.tareas {
-    display: grid;
-    justify-content: center;
-    justify-items: center;
-    border-radius: 20px;
-    width: fit-content;
-    padding: 1.2rem;
-    color: white;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    h2 {
-        background-color: #000000;
-        width: 100%;
-        text-align: center;
-    }
-
-    div {
-        position: relative;
-        top: 14vh;
-        left: 4.5vw;
-        z-index: 1;
-    }
-
-}
-
-form {
-    margin-top: 2rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
-
-.pendingTasks {
-    display: grid;
-    margin-top: 2rem;
-    color: white;
-
-    h2 {
-        font-size: 1.5rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        background-color: #000000;
-    }
-
-    div {
-        margin-bottom: 1.5rem;
-    }
-
+    
     h3 {
         font-size: 1.25rem;
         margin-bottom: 0.5rem;
     }
-
-    p {
+    
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 0.75rem;
         font-size: 1rem;
-        margin-bottom: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 1rem;
     }
-
-    span {
-        font-size: 0.75rem;
+    
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
         font-weight: bold;
-        color: #777;
-        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    
+    button:focus {
+        outline: none;
+    }
+    
+    .modificacion {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem;
+    }
+    
+    .tareasDivision {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .tareas, .pendingTasks {
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        padding: 2rem;
+        max-width: 500px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .modificacion {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    background-color: #4e5ad1;
-    border-radius: 20px;
-    width: fit-content;
-    padding: 1.2rem;
+    .tareas, .pendingTasks {
+        flex-basis: calc(100% - 2rem);
+        margin-bottom: 2rem;
+    }
 }
 
 @media only screen and (max-width: 600px) {
-    .container {
+    .containerToDo {
         padding: 1rem;
-        /* Reducir el relleno en pantallas pequeñas */
     }
 
     h1 {
@@ -167,11 +111,10 @@ label {
 
     h2 {
         font-size: 1.25rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
 
-    .container button {
+    button {
         font-size: 0.9rem;
-        /* Reducir el tamaño de fuente de los botones en pantallas pequeñas */
     }
 }

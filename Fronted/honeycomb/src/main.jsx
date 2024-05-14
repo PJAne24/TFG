@@ -8,6 +8,7 @@ import Index from './pages/index/index.jsx'
 import Calendario from './pages/calendario'
 import PanelControl from './admin/panelControl'
 import Login from './pages/login.jsx'
+import ToDo from './pages/toDo/toDo.jsx'
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     "path": "/sesion",
     "element": <Login />
+  },
+  {
+    "path": "/toDo",
+    "element": <ToDo />
   }
 ]);
 

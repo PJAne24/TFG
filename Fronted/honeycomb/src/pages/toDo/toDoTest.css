@@ -4,7 +4,7 @@
     height: 215px;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     background: radial-gradient(at center, #e1cf93 1%, #ff7d20c8 40%, #fff200), #FF6B01;
-    filter: blur(25px);
+    filter: blur(20px);
 }
 
 
@@ -20,15 +20,15 @@
     transition: .5s;
     margin: 5px;
     overflow: hidden;
-    /* Evitar que el título se desborde */
 }
 
 .hexagonBack:hover {
     transform: scale3d(1.5, 1.5, 1.5);
     z-index: 1;
-    
+
     .titleHexagon {
         opacity: 1;
+        font-size: 40px;
         text-shadow: 0px 0px 30px white;
     }
 }
@@ -43,17 +43,18 @@
     flex-wrap: wrap;
     justify-content: center;
     height: 100%;
-    margin: 4rem;
 }
 
 .container .uno {
+    top: 90px;
     position: absolute;
 }
 
 .container .dos {
     position: relative;
-    top: 128px;
+    top: 168px;
     right: 80px;
+    height: fit-content;
 }
 
 #dos-dos {
@@ -67,13 +68,13 @@
     transform: translate(-50%, -50%);
     font-size: 24px;
     color: #000000;
-    /* Cambiar el color del texto a blanco */
     font-weight: bold;
-    opacity: 0;
-    /* Ocultar inicialmente el título */
-    transition: opacity 0.3s ease;
-    /* Agregar transición de opacidad */
+    opacity: 1;
+    transition: 0.3s ease;
+    text-decoration: none;
 }
 
-/* .hexagonBack:hover .title {
-    opacity: 1; /* Mostrar el título al hacer hover */
+#logo {
+    height: 60px;
+    width: 60px;
+}
