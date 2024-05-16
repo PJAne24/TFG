@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import ToDoTest from '../toDo/toDoTest';
 import Profile from '../profile.jsx';
 import ToDO from '../../assets/toDO.png'
@@ -10,35 +11,21 @@ import './index.css';
 
 
 const Index = () => {
-  const [currentPage, setCurrentPage] = useState('menu');
   const [isProfileOpen, setIsProfileOpen] = useState(false); // Estado para controlar si el pop-up de Profile está abierto
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+  const navigate = useNavigate();
 
-    window.addEventListener('scroll', handleScroll);
+  const toDoNav = () => {
+    navigate('/toDo');
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const pagCalendario = () => {
-    setCurrentPage('calendario');
   };
-  const pagToDo = () => {
-    setCurrentPage('toDo');
+  const calendarNav = () => {
+    navigate('/calendar');
+  };
+  const notesNav = () => {
+    navigate('/notes');
   };
 
-  const pagNotas = () => {
-    setCurrentPage('notas');
-  };
 
   const toggleProfilePopup = () => {
     setIsProfileOpen(!isProfileOpen);
@@ -56,13 +43,13 @@ const Index = () => {
               <button className='' onClick={toggleProfilePopup}><img src={sesion} alt="" className='icons' />   Profile</button>
             </div>
             <div>
-              <button onClick={pagToDo} ><img src={ToDO} alt="" className='icons' />   To do</button>
+              <button onClick={toDoNav}><img src={ToDO} alt="" className='icons' />   To do</button>
             </div>
             <div>
-              <button onClick={pagCalendario}><img src={calendar} alt="" className='icons' />  Calendar</button>
+              <button onClick={calendarNav}><img src={calendar} alt="" className='icons' />  Calendar</button>
             </div>
             <div>
-              <button className='bn5' onClick={pagNotas}><img src={notes} alt="" className='icons' />   Notes</button>
+              <button onClick={notesNav}><img src={notes} alt="" className='icons' />   Notes</button>
             </div>
           </div>
         </section>

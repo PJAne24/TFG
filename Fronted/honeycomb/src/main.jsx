@@ -5,10 +5,11 @@ import './main.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Index from './pages/index/index.jsx'
-import Calendario from './pages/calendario'
+import Calendario from './pages/calendar/calendario.jsx'
 import PanelControl from './admin/panelControl'
-import Login from './pages/login.jsx'
+import Login from './components/login/login.jsx'
 import ToDo from './pages/toDo/toDo.jsx'
+import Notes from './pages/notas.jsx'
 
 
 const router = createBrowserRouter([
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
     "element": <Index />
   },
   {
-    "path": "/calendario",
+    "path": "/calendar",
     "element": <Calendario />
   },
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     "path": "/toDo",
     "element": <ToDo />
+  },
+  {
+    "path": "/notes",
+    "element": <Notes />
   }
 ]);
 

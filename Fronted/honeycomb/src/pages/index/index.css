@@ -83,44 +83,11 @@
     font-size: 1vw;
 }
 
-.scrolled {
-    top: 100px;
-}
-
 .icons {
     width: 20px;
     height: auto;
     filter: brightness(0) invert(1);
 }
-
-
-/* Reglas de medios para pantallas pequeñas */
-@media only screen and (max-width: 768px) {
-    header {
-        height: 15vh;
-        /* Ajustar altura en pantallas pequeñas */
-        padding: 0 20px;
-        /* Añadir relleno horizontal */
-    }
-
-    .menu {
-        grid-template-columns: repeat(3, auto);
-        grid-template-rows: 100%;
-        height: 10em;
-
-        button {
-            font-size: 2vh;
-        }
-    }
-
-    .body {
-        grid-template-columns: 1fr;
-        /* Cambiar a una sola columna en pantallas pequeñas */
-        height: auto;
-        /* Altura automática */
-    }
-}
-
 
 /* Estilos para el pop-up */
 .profile-popup {

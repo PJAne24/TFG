@@ -1,3 +1,23 @@
+
+
+@keyframes blink {
+    0% {
+        filter: blur(0px);
+    }
+
+    40% {
+        filter: blur(5px);
+    }
+
+    60% {
+        filter: blur(15px);
+    }
+
+    100% {
+        filter: blur(25px);
+    }
+}
+
 .hexagon {
     position: relative;
     width: 280px;
@@ -5,6 +25,12 @@
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     background: radial-gradient(at center, #e1cf93 1%, #ff7d20c8 40%, #fff200), #FF6B01;
     filter: blur(20px);
+    animation: blink 10s infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.centerHexagon {
+    animation: none;   
 }
 
 
@@ -25,17 +51,17 @@
 .hexagonBack:hover {
     transform: scale3d(1.5, 1.5, 1.5);
     z-index: 1;
-
-    .titleHexagon {
-        opacity: 1;
-        font-size: 40px;
-        text-shadow: 0px 0px 30px white;
-    }
 }
 
 .hexagonBack:hover .hexagon {
+    animation: none;
     filter: blur(0px);
     transition: .3s;
+
+    .titleHexagon{
+        font-size: 40px;
+        transition: 0.2s;
+    }
 }
 
 .container {
@@ -72,6 +98,8 @@
     opacity: 1;
     transition: 0.3s ease;
     text-decoration: none;
+    font-style: italic;
+    font-weight: lighter;
 }
 
 #logo {
