@@ -30,11 +30,11 @@ public class TaskService {
         return taskRepository.findAll();
     }
     //Busca por id la tarea
-    public Optional<Task> findById(int id){
+    public Optional<Task> findById(String id){
         return taskRepository.findById(id);
     }
     //Eliminar tarea
-    public void deleteById(Integer id){
+    public void deleteById(String id){
         taskRepository.deleteById(id);
     }
 }

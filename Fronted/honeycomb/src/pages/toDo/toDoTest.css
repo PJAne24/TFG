@@ -18,6 +18,9 @@
     }
 }
 
+.centerHexagon {
+    animation: none;   
+}
 .hexagon {
     position: relative;
     width: 280px;
@@ -29,9 +32,6 @@
     animation-timing-function: ease-in-out;
 }
 
-.centerHexagon {
-    animation: none;   
-}
 
 
 .hexagonBack {

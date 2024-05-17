@@ -13,6 +13,6 @@ import java.util.Optional;
 public interface TaskRepository extends MongoRepository<Task, String> {
 
     public List<Task> findAll();
-    public Optional<Task> findById(int id);
-    public void deleteById(int id);
+    public Optional<Task> findById(String id);
+    public void deleteById(String id);
 }

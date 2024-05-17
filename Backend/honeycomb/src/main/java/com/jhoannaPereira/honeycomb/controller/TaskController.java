@@ -35,16 +35,16 @@ public class TaskController {
     }
 
     @GetMapping("/task/{id}")
-    public Task findById(@PathVariable int id){
+    public Task findById(@PathVariable String id){
         return taskService.findById(id).get(); //hay que colocar el .get porque hemos colocado un optional
     }
 
-    @DeleteMapping("/task/{id}")
-    public void deleteById(@PathVariable int id){
+    @DeleteMapping("/eliminar/{id}")
+    public void deleteById(@PathVariable String id){
         taskService.deleteById(id);
     }
 
-    @PutMapping("/tasks")
+    @PutMapping("/actualizar")
     public void update(@RequestBody Task task){
         taskService.save(task);
     }

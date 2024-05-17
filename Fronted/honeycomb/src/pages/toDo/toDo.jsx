@@ -1,25 +1,25 @@
-import "./toDo.css"
+import "./toDo.css";
 import { React, useState, useEffect } from "react";
-import axios from "axios"
-import Header from "../../components/header/header.jsx"
+import axios from "axios";
+import Header from "../../components/header/header.jsx";
 
-
-const SERVER_URL = "http://localhost:4444";
-const API_ENDPOINT = "/Task/crear";
-
+const SERVER_URL = "http://localhost:8080";
+const API_ENDPOINT_CREATE = "/Task/crear";
+const API_ENDPOINT_DELETE = "/Task/eliminar"; // Actualización de la ruta
 
 const menuPrincipal = () => {
-
-    // Definimos los estados para el título y el subtítulo
     const [title, setTitle] = useState("Título personalizado");
     const [subtitulo, setSubtitulo] = useState("Subtítulo personalizado");
+
     const [tasks, setTasks] = useState([]);
+
+
     const [formData, setFormData] = useState({
         taskTitle: "",
-        taskDescription: ""
+        taskDescription: "",
+        priority: false
     });
 
-    // Función para cambiar el título
     const cambiarTitulo = () => {
         const nuevoTitulo = prompt("Introduce el nuevo título:");
         if (nuevoTitulo !== null) {
@@ -27,7 +27,6 @@ const menuPrincipal = () => {
         }
     };
 
-    // Función para cambiar el subtítulo
     const cambiarSubtitulo = () => {
         const nuevoSubtitulo = prompt("Introduce el nuevo subtítulo:");
         if (nuevoSubtitulo !== null) {
@@ -41,7 +40,8 @@ const menuPrincipal = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:4444/Task/buscar");
+            const response = await axios.get(`${SERVER_URL}/Task/buscar`);
+            console.log("Fetched tasks:", response.data);
             setTasks(response.data);
         } catch (error) {
             console.error("Error fetching tasks:", error);
@@ -49,30 +49,48 @@ const menuPrincipal = () => {
     };
 
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
+        const { name, value, type, checked } = e.target;
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: type === "checkbox" ? checked : value
+        }));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${SERVER_URL}${API_ENDPOINT}`, {
+            const response = await axios.post(`${SERVER_URL}${API_ENDPOINT_CREATE}`, {
                 title: formData.taskTitle,
                 description: formData.taskDescription,
-                priority: false // Puedes ajustar esto según tu formulario
+                priority: formData.priority
             });
-            setTasks([...tasks, response.data]); // Agregar la nueva tarea a la lista
+            console.log(`Added task with ID: ${response.data.id}`);
+            setTasks([...tasks, response.data]);
             setFormData({
                 taskTitle: "",
-                taskDescription: ""
+                taskDescription: "",
+                priority: false
             });
         } catch (error) {
             console.error("Error adding task:", error);
         }
     };
+    
 
+    const eliminarTarea = async (taskId) => {
+        if (!taskId) {
+            console.error("Task ID is undefined");
+            return;
+        }
+
+        try {
+            console.log(`Deleting task with ID: ${taskId}`);
+            await axios.delete(`${SERVER_URL}${API_ENDPOINT_DELETE}/${taskId}`);
+            setTasks(tasks.filter((task) => task._id !== taskId));
+        } catch (error) {
+            console.error("Error deleting task:", error);
+        }
+    };
 
     return (
         <>
@@ -102,6 +120,10 @@ const menuPrincipal = () => {
                                             Descripción de la tarea: <br />
                                             <textarea name="taskDescription" value={formData.taskDescription} onChange={handleChange} />
                                         </label>
+                                        <label>
+                                            Prioritaria
+                                            <input type="checkbox" name="priority" checked={formData.priority} onChange={handleChange} />
+                                        </label>
                                         <button type="submit">Agregar tarea</button>
                                     </form>
                                 </div>
@@ -110,25 +132,20 @@ const menuPrincipal = () => {
 
                         <div className="pendingTasks">
                             <h2>Tablero de tareas</h2>
-                            {tasks.map(task => (
-                                <div key={task._id}>
-                                    <span>({task.id})</span>
+                            {tasks.map((task, idTask = task.id) => (
+                                <div key={idTask}>
                                     <h3>{task.title}</h3>
                                     <p>{task.description}</p>
                                     <p>{task.priority ? "Prioritario" : "No prioritario"}</p>
-                                    <button>Eliminar tarea</button>
+                                    <button onClick={() => eliminarTarea(task.id)}>Eliminar tarea</button>
                                 </div>
                             ))}
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
         </>
-    )
+    );
+};
 
-}
-
-export default menuPrincipal
+export default menuPrincipal;
