@@ -7,3 +7,6 @@ PASOS PARA TFG (18 mayo fecha limite)
 
 Opcionales:
 parpadeo en los hexagonos
+
+
+PARA PODER INICIAR SESION DEBES LOGGUEARTE CON user@example.com Y password
