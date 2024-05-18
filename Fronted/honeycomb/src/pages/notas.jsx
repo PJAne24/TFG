@@ -1,9 +1,12 @@
+import Header from '../components/header/header.jsx'
+
 const notas = () =>{
 
     return(
-        <div>
-            notas
-        </div>
+        <>
+        <Header/>
+            <h1>notas</h1>
+        </>
     )
 }
 

@@ -12,7 +12,6 @@ import './index.css';
 
 const Index = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false); // Estado para controlar si el pop-up de Profile está abierto
-
   const navigate = useNavigate();
 
   const toDoNav = () => {

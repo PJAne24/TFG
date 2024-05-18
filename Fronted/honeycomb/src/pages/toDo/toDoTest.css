@@ -1,4 +1,13 @@
+/* @keyframes ligth {
+    0%,
+    50%{
+        opacity: 0;
+    }
 
+    100% {
+        opacity: 1;
+    }
+} */
 
 @keyframes blink {
     0% {
@@ -19,8 +28,23 @@
 }
 
 .centerHexagon {
-    animation: none;   
+    position: relative;
+    width: 280px;
+    height: 215px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: radial-gradient(at center, #e1cf93 1%, #ff7d20c8 40%, #fff200), #FF6B01;
+    filter: blur(20px);  
 }
+
+.hexagon6 .hexagon3{
+    animation: none;
+}
+
+/* .hexagonBack{
+    animation: ligth 5s infinite;
+    animation-timing-function: ease-in-out;
+} */
+
 .hexagon {
     position: relative;
     width: 280px;
@@ -53,7 +77,7 @@
     z-index: 1;
 }
 
-.hexagonBack:hover .hexagon {
+.hexagonBack:hover .hexagon, .hexagonBack:hover .centerHexagon  {
     animation: none;
     filter: blur(0px);
     transition: .3s;
@@ -87,7 +111,7 @@
     left: 80px;
 }
 
-.titleHexagon {
+.titleHexagon, button .titleHexagon{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -100,6 +124,9 @@
     text-decoration: none;
     font-style: italic;
     font-weight: lighter;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 #logo {
