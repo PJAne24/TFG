@@ -10,12 +10,14 @@ const calendario = () => {
     const localizer = dayjsLocalizer(dayjs)
     return (
         <>
-        <Header/>
-            <div className='contenedor'>
-                <Calendar
-                    localizer={localizer}
-                    style={{ height: 500 }}
-                />
+            <Header />
+            <div className='contenedorCalendar'>
+                <div className='calendar'>
+                    <Calendar
+                        localizer={localizer}
+                        style={{ height: 500 }}
+                    />
+                </div>
             </div>
         </>
     )

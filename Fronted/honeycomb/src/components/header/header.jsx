@@ -17,7 +17,7 @@ const Header = () => {
         <ul className={menuOpen ? "camposMenu active" : "camposMenu"}>
           <li><Link to="/">Inicio</Link></li>
           <li><Link to="/admin">Panel de Control</Link></li>
-          <li><Link to="/sesion">Sesión</Link></li>
+          <li><Link to="/login">Sesión</Link></li>
         </ul>
         <div>
           <img src={Logo} alt="Logo honeycomb" id="Logo" />

@@ -1,0 +1,13 @@
+.contenedorCalendar{
+    background-color: #756464;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .calendar{
+        background-color: #fff;
+        width: 60vw;
+        height: fit-content;
+    }
+}

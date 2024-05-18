@@ -30,7 +30,7 @@ const ToDoTest = () => {
     }, []);
 
     const logOut = () =>{
-        navigate('/sesion')
+        navigate('/login')
     }
 
     return (
@@ -48,7 +48,7 @@ const ToDoTest = () => {
                 </div>
                 <div className="hexagonBack">
                     <div className='hexagon'>
-                        <span className="titleHexagon"><Link to="/toDo" className='titleHexagon'>Tasks</Link></span>
+                        <span className="titleHexagon"><Link to="/tasks" className='titleHexagon'>Tasks</Link></span>
                     </div>
                 </div>
             </div>

@@ -11,12 +11,13 @@ import PanelControl from './admin/panelControl';
 import Login from './components/login/login.jsx';
 import ToDo from './pages/toDo/toDo.jsx';
 import Notes from './pages/notas.jsx';
-import Profile from './pages/profile.jsx';
+import Register from './components/register/register.jsx';
+import Tasks from './pages/tasks/task.jsx'
 
 const ProtectedRoute = ({ element, isAuthenticated }) => {
-  return isAuthenticated ? element : <Navigate to="/sesion" />;
+  return isAuthenticated ? element : <Navigate to="/login" />;
 };
-
+//HACER LA CONEXION A LA BBDD AUTOMATICAMENTE
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -34,7 +35,7 @@ const App = () => {
       element: <ProtectedRoute element={<PanelControl />} isAuthenticated={isAuthenticated} />
     },
     {
-      path: "/sesion",
+      path: "/login",
       element: <Login setIsAuthenticated={setIsAuthenticated} />
     },
     {
@@ -45,6 +46,14 @@ const App = () => {
       path: "/notes",
       element: <ProtectedRoute element={<Notes />} isAuthenticated={isAuthenticated} />
     },
+    {
+      path: "/register",
+      element: <ProtectedRoute element={<Register />} isAuthenticated={isAuthenticated} />
+    },
+    {
+      path: "/tasks",
+      element: <ProtectedRoute element={<Tasks />} isAuthenticated={isAuthenticated} />
+    }
   ]);
 
   return (
