@@ -1,8 +1,11 @@
 import { React, useEffect, useState } from "react";
+import axios from "axios";
 import Header from '../../components/header/header.jsx'
+import './tasks.css'
 
 const task = () => {
     const [tasks, setTasks] = useState([]);
+    const SERVER_URL = "http://localhost:8080";
 
     useEffect(() => {
         fetchData();
@@ -17,7 +20,6 @@ const task = () => {
             console.error("Error fetching tasks:", error);
         }
     };
-    setTasks([...tasks]);
 
     return (
         <>

@@ -1,5 +1,6 @@
 // src/main.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSessionStorage } from './admin/useSessionStorage.jsx';
 import ReactDOM from 'react-dom/client';
 import './main.css';
 
@@ -17,9 +18,16 @@ import Tasks from './pages/tasks/task.jsx'
 const ProtectedRoute = ({ element, isAuthenticated }) => {
   return isAuthenticated ? element : <Navigate to="/login" />;
 };
-//HACER LA CONEXION A LA BBDD AUTOMATICAMENTE
+
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useSessionStorage('isAuthenticated', false);
+
+  useEffect(() => {
+    const storedVerify = sessionStorage.getItem('isAuthenticated');
+    if (storedVerify === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   const router = createBrowserRouter([
     {

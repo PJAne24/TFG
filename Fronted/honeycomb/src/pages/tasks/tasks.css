@@ -1,0 +1,7 @@
+.contenedorTask{
+    background-color: #756464;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

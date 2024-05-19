@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useSessionStorage } from '../../admin/useSessionStorage';
 import logo from '../../assets/Logo.png';
 import './toDoTest.css';
 import { Link } from "react-router-dom";
@@ -29,7 +30,8 @@ const ToDoTest = () => {
         });
     }, []);
 
-    const logOut = () =>{
+    const logOut = () => {
+        sessionStorage.clear()
         navigate('/login')
     }
 

@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSessionStorage } from '../../admin/useSessionStorage';
 import './login.css';
 
 const Login = ({ setIsAuthenticated }) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useSessionStorage('email', '');
+    const [password, setPassword] = useSessionStorage('pwd','');
+
+
+
+
     const navigate = useNavigate();
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
+        e.preventDefault();
         // Falta todavía hacer la logica de autenticación
-        if (email === 'user@example.com' && password === 'password') {
+        if (email === 'papa@example.com' && password === 'password') {
             setIsAuthenticated(true);
+            sessionStorage.setItem('isAuthenticated', 'true'); // Guardar estado de autenticación en el almacenamiento de sesión
             navigate('/');
         } else {
             alert('Credenciales incorrectas');
@@ -39,5 +46,4 @@ const Login = ({ setIsAuthenticated }) => {
     );
 };
 
-/*LOCAL STORAGE IMPORTANTE*/
 export default Login;
