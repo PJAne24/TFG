@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import ToDoTest from '../toDo/toDoTest';
+import Main from '../main/main.jsx';
 import Profile from '../profile.jsx';
+
+//images
 import ToDO from '../../assets/toDO.png'
 import calendar from '../../assets/calendar.png'
 import notes from '../../assets/notes.png'
 import sesion from '../../assets/sesion.png'
 import logo from '../../assets/Logo.png'
+//css
 import './index.css';
 
 
@@ -53,7 +56,7 @@ const Index = () => {
           </div>
         </section>
         <section >
-          <ToDoTest />
+          <Main />
         </section>
       </div>
 

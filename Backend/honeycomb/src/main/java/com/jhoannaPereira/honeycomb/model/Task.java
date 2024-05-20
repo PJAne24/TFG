@@ -14,8 +14,6 @@ public class Task {
 
     @Id
     private String id;
-    @Indexed(unique=true)
-    private Integer idTask;
     private String title;
     private String description;
     private Boolean priority;

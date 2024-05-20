@@ -9,6 +9,10 @@ const Header = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+  const logOut = () => {
+    sessionStorage.clear()
+    navigate('/login')
+}
 
   return (
     <header>
@@ -16,8 +20,8 @@ const Header = () => {
           <button className="menu-btn centrar" onClick={toggleMenu}>☰</button>
         <ul className={menuOpen ? "camposMenu active" : "camposMenu"}>
           <li><Link to="/">Inicio</Link></li>
-          <li><Link to="/admin">Panel de Control</Link></li>
-          <li><Link to="/login">Sesión</Link></li>
+          {/* <li><Link to="/admin">Panel de Control</Link></li> */}
+          <li><Link to="/login" onClick={logOut}>Cerrar Sesión</Link></li>
         </ul>
         <div>
           <img src={Logo} alt="Logo honeycomb" id="Logo" />
