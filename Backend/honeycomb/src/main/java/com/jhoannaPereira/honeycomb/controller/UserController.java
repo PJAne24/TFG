@@ -5,6 +5,8 @@ import com.jhoannaPereira.honeycomb.repository.UserRepository;
 import com.jhoannaPereira.honeycomb.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,9 +28,13 @@ public class UserController {
 
 
     @PostMapping("/crear")
-    public void save(@RequestBody User user){
-        logger.info("recibe los datos el controller: " + user);
-        userService.save(user);
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        try {
+            User savedUser = userRepository.save(user);
+            return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/buscar")

@@ -21,17 +21,21 @@ public class TaskService {
 
     //Guarda una tarea
     public void save(Task task){
-        logger.info("recibe los datos el controller: " + task);
+        logger.info("recibe los datos el service: " + task);
         taskRepository.save(task);
     }
     //Saca todas las tareas
     public List<Task> findAll(){
-        logger.info("recibe los datos el controller");
+        logger.info("recibe los datos el service");
         return taskRepository.findAll();
     }
     //Busca por id la tarea
     public Optional<Task> findById(String id){
         return taskRepository.findById(id);
+    }
+    public List<Task> findByIdUser(String idUser){
+        logger.info("recibe los datos el service");
+        return taskRepository.findByIdUser(idUser);
     }
     //Eliminar tarea
     public void deleteById(String id){

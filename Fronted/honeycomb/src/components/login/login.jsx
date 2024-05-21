@@ -7,10 +7,10 @@ import './login.css';
 const SERVER_URL = "http://localhost:8080";
 
 const Login = ({ setIsAuthenticated }) => {
-    const [user, setUser] = useSessionStorage('user','');
+    const [user, setUser] = useSessionStorage('user', '');
     const [email, setEmail] = useSessionStorage('email', '');
     const [repeatPassword, setRepeatPassword] = useState('');
-    const [password, setPassword] = useSessionStorage('pwd','');
+    const [password, setPassword] = useSessionStorage('pwd', '');
     const [showDisplay, setDisplay] = useState(false);
     const [buttonClicked, setButtonClicked] = useState(false); // Estado para controlar si se ha hecho clic en el botón de inicio de sesión
 
@@ -21,7 +21,7 @@ const Login = ({ setIsAuthenticated }) => {
         setButtonClicked(true); // Establecer el estado de botón presionado como verdadero
     };
 
-    const handleLogin = async(e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
         try {
@@ -31,6 +31,8 @@ const Login = ({ setIsAuthenticated }) => {
             if (userData) {
                 setIsAuthenticated(true);
                 sessionStorage.setItem('isAuthenticated', 'true'); // Guardar estado de autenticación en el almacenamiento de sesión
+                sessionStorage.setItem('userId', userData.id); // Guardar ID del usuario
+                sessionStorage.setItem('userRole', userData.role); // Guardar rol del usuario
                 navigate('/');
             } else {
                 if (buttonClicked) {
@@ -40,10 +42,10 @@ const Login = ({ setIsAuthenticated }) => {
         } catch (error) {
             console.error("Error fetching tasks:", error);
         }
-        
     };
 
-    const handleRegister = async(e) => {
+
+    const handleRegister = async (e) => {
         e.preventDefault();
 
         if (password !== repeatPassword) {
@@ -63,12 +65,14 @@ const Login = ({ setIsAuthenticated }) => {
             if (response.status === 201) {
                 setIsAuthenticated(true);
                 sessionStorage.setItem('isAuthenticated', 'true');
+                sessionStorage.setItem('userId', response.data.id); // Guardar el ID del usuario
                 navigate('/');
             } else {
                 alert('Error creating user');
             }
         } catch (error) {
             console.error("Error creating user:", error);
+            alert('Error creating user');
         }
     };
 
@@ -79,33 +83,33 @@ const Login = ({ setIsAuthenticated }) => {
 
     return (
         <>
-        <form className={`form ${showDisplay ? 'displayNone' : ''}`} onSubmit={handleLogin}>
-            <div className='title'>
-                <h1>Welcome, TO HONEYCOMB</h1><br />
-                <span>sign in to continue</span>
-            </div>
-            <div className='loginSection'>
-                <input type='user' placeholder='User' name='user' className='input' value={user} onChange={(e) => setUser(e.target.value)} />
-                <input type='email' placeholder='Email' name='email' className='input' value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type='password' placeholder='Password' name='password' className='input' value={password} onChange={(e) => setPassword(e.target.value)} />
-                <button className='button-confirm' type='submit' onClick={handleButtonLoginClick}>Let's go →</button>
-            </div>
-            <span style={{ textAlign: 'center' , fontSize: '15px'}}>¿No te has registrado aún?</span>
-            <button className='button-register' onClick={goToRegister} >¡Regístrate!</button>
-        </form>
-        <form className={`formRegister ${showDisplay ? '' : 'displayNone'}`} onSubmit={handleRegister}>
-            <div className='title'>
-                <h1>Welcome, TO HONEYCOMB</h1><br />
-                <span>sign up to continue</span>
-            </div>
-            <div className='registerSection'>
-                <input type='user' placeholder='User' name='user' className='input' value={user} onChange={(e) => setUser(e.target.value)} />
-                <input type='email' placeholder='Email' name='email' className='input' value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type='password' placeholder='Password' name='password' className='input' value={password} onChange={(e) => setPassword(e.target.value)} />
-                <input type='password' placeholder='Repeat Password' name='repeatPassword' className='input' value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} />
-                <button className='button-confirm' type='submit'>Let's go →</button>
-            </div>
-        </form>
+            <form className={`form ${showDisplay ? 'displayNone' : ''}`} onSubmit={handleLogin}>
+                <div className='title'>
+                    <h1>Welcome, TO HONEYCOMB</h1><br />
+                    <span>sign in to continue</span>
+                </div>
+                <div className='loginSection'>
+                    <input type='user' placeholder='User' name='user' className='input' value={user} onChange={(e) => setUser(e.target.value)} />
+                    <input type='email' placeholder='Email' name='email' className='input' value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <input type='password' placeholder='Password' name='password' className='input' value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <button className='button-confirm' type='submit' onClick={handleButtonLoginClick}>Let's go →</button>
+                </div>
+                <span style={{ textAlign: 'center', fontSize: '15px' }}>¿No te has registrado aún?</span>
+                <button className='button-register' onClick={goToRegister} >¡Regístrate!</button>
+            </form>
+            <form className={`formRegister ${showDisplay ? '' : 'displayNone'}`} onSubmit={handleRegister}>
+                <div className='title'>
+                    <h1>Welcome, TO HONEYCOMB</h1><br />
+                    <span>sign up to continue</span>
+                </div>
+                <div className='registerSection'>
+                    <input type='user' placeholder='User' name='user' className='input' value={user} onChange={(e) => setUser(e.target.value)} />
+                    <input type='email' placeholder='Email' name='email' className='input' value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <input type='password' placeholder='Password' name='password' className='input' value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input type='password' placeholder='Repeat Password' name='repeatPassword' className='input' value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} />
+                    <button className='button-confirm' type='submit'>Let's go →</button>
+                </div>
+            </form>
 
         </>
     );

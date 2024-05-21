@@ -14,5 +14,7 @@ public interface TaskRepository extends MongoRepository<Task, String> {
 
     public List<Task> findAll();
     public Optional<Task> findById(String id);
+    List<Task> findByIdUser(String idUser);
     public void deleteById(String id);
+
 }

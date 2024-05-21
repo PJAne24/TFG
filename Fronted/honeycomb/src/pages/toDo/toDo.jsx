@@ -39,8 +39,14 @@ const menuPrincipal = () => {
     }, []);
 
     const fetchData = async () => {
+        const userId = sessionStorage.getItem('userId');
+        if (!userId) {
+            console.error("User ID is not available in session storage");
+            return;
+        }
+
         try {
-            const response = await axios.get(`${SERVER_URL}/Task/buscar`);
+            const response = await axios.get(`${SERVER_URL}/Task/user/${userId}`);
             console.log("Fetched tasks:", response.data);
             setTasks(response.data);
         } catch (error) {
@@ -58,8 +64,14 @@ const menuPrincipal = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const userId = sessionStorage.getItem('userId');
+        if (!userId) {
+            console.error("User ID is not available in session storage");
+            return;
+        }
         try {
             const response = await axios.post(`${SERVER_URL}${API_ENDPOINT_CREATE}`, {
+                idUser: userId,
                 title: formData.taskTitle,
                 description: formData.taskDescription,
                 priority: formData.priority
@@ -75,7 +87,7 @@ const menuPrincipal = () => {
             console.error("Error adding task:", error);
         }
     };
-    
+
 
     const eliminarTarea = async (taskId) => {
         if (!taskId) {
