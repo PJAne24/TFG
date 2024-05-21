@@ -1,5 +1,8 @@
 import "./toDo.css";
 import { React, useState, useEffect } from "react";
+import { useSessionStorage } from "../../admin/useSessionStorage.jsx";
+import lapiz from '../../assets/pen.png'
+
 import axios from "axios";
 import Header from "../../components/header/header.jsx";
 
@@ -8,8 +11,8 @@ const API_ENDPOINT_CREATE = "/Task/crear";
 const API_ENDPOINT_DELETE = "/Task/eliminar"; // Actualización de la ruta
 
 const menuPrincipal = () => {
-    const [title, setTitle] = useState("Título personalizado");
-    const [subtitulo, setSubtitulo] = useState("Subtítulo personalizado");
+    const [title, setTitle] = useSessionStorage("título","Título personalizado");
+    const [subtitulo, setSubtitulo] = useSessionStorage("subtítulo","Subtítulo personalizado");
 
     const [tasks, setTasks] = useState([]);
 
@@ -108,15 +111,15 @@ const menuPrincipal = () => {
         <>
             <Header />
             <div className="containerToDo">
-                <div>
+                <div className="toDo">
                     <div className="modificacion">
                         <h1>{title}</h1>
-                        <button onClick={cambiarTitulo}>editar</button>
+                        <button onClick={cambiarTitulo}><img src={lapiz} alt="editar-lapiz" /></button>
                     </div>
 
                     <div className="modificacion">
                         <h3>{subtitulo}</h3>
-                        <button onClick={cambiarSubtitulo}>editar</button>
+                        <button onClick={cambiarSubtitulo}><img src={lapiz} alt="editar-lapiz" id="subImg" /></button>
                     </div>
                     <div className="mitades">
                         <div className="tareasDivision">
@@ -125,16 +128,16 @@ const menuPrincipal = () => {
                                     <h2>Crear tareas</h2>
                                     <form onSubmit={handleSubmit}>
                                         <label>
-                                            Título de la tarea: <br />
+                                            <span>Título de la tarea: </span><br />
                                             <input type="text" name="taskTitle" value={formData.taskTitle} onChange={handleChange} />
                                         </label>
                                         <label>
-                                            Descripción de la tarea: <br />
+                                            <span>Descripción de la tarea: </span><br />
                                             <textarea name="taskDescription" value={formData.taskDescription} onChange={handleChange} />
                                         </label>
                                         <label>
-                                            Prioritaria
-                                            <input type="checkbox" name="priority" checked={formData.priority} onChange={handleChange} />
+                                            <br /><input type="checkbox" name="priority" checked={formData.priority} onChange={handleChange} />
+                                            <span id="priority">Prioritaria</span> <br />
                                         </label>
                                         <button type="submit">Agregar tarea</button>
                                     </form>

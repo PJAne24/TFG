@@ -1,13 +1,3 @@
-/* @keyframes ligth {
-    0%,
-    50%{
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-} */
 
 @keyframes blink {
     0% {
@@ -40,10 +30,6 @@
     animation: none;
 }
 
-/* .hexagonBack{
-    animation: ligth 5s infinite;
-    animation-timing-function: ease-in-out;
-} */
 
 .hexagon {
     position: relative;
@@ -113,14 +99,13 @@
     left: 80px;
 }
 
-.titleHexagon, button .titleHexagon{
+.titleHexagon, button.titleHexagon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 24px;
-    color: #000000;
-    font-weight: bold;
+    color: #000;
     opacity: 1;
     transition: 0.3s ease;
     text-decoration: none;
@@ -130,6 +115,7 @@
     border: none;
     cursor: pointer;
 }
+
 
 #logo {
     height: 60px;

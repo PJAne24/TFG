@@ -4,7 +4,7 @@ import logo from '../../assets/Logo.png';
 import './main.css';
 import { Link } from "react-router-dom";
 
-const ToDoTest = () => {
+const hexagon = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -68,7 +68,7 @@ const ToDoTest = () => {
             <div className='dos' id="dos-dos">
                 <div className="hexagonBack">
                     <div className='hexagon'>
-                        <span className="titleHexagon"><button onClick={logOut} className='titleHexagon'>Cerrar sesión</button></span>
+                        <span><button onClick={logOut} className='titleHexagon'>Cerrar sesión</button></span>
                     </div>
                 </div>
                 <div className="hexagonBack">
@@ -81,4 +81,4 @@ const ToDoTest = () => {
     );
 }
 
-export default ToDoTest;
+export default hexagon;

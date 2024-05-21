@@ -3,38 +3,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(255 200 0 / 72%);
-    min-height: 100vh;
-    
-    .mitades{
+    min-height: calc(100vh - 10vh);
+
+    .mitades {
         display: grid;
         width: 100%;
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;
     }
-    
-    h1, h3 {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-        font-weight: bold;
+
+    h1,
+    h3 {
+        font-weight: 100;
         color: #ffffff;
+        font-style: italic;
     }
-    
+
     h1 {
-        font-size: 2rem;
+        font-size: 5rem;
         margin-bottom: 1rem;
     }
-    
+
     h2 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
-        color: #333; 
+        color: #333;
     }
-    
+
     h3 {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         margin-bottom: 0.5rem;
     }
-    
+
     input[type="text"],
     textarea {
         width: 100%;
@@ -44,82 +44,115 @@
         border-radius: 4px;
         margin-bottom: 1rem;
     }
-    
-    button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        font-weight: bold;
-        font-size: 1rem;
-        padding: 0.75rem 1.5rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    
-    button:hover {
-        background-color: #0056b3;
-    }
-    
-    button:focus {
-        outline: none;
-    }
-    
+
     .modificacion {
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 2rem;
+
+        button {
+            background: none;
+            border: none;
+        }
+
+        img {
+            margin-left: 30px;
+            height: 50px;
+            width: auto;
+            filter: brightness(0) invert(1)
+        }
+
+        #subImg {
+            height: 30px;
+            width: auto;
+        }
     }
-    
+
     .tareasDivision {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
-        margin-top: 2rem;
+
+        h2 {
+            font-size: 30px;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+
+        #priority {
+            margin-left: 10px;
+        }
+
     }
-    
-    .tareas, .pendingTasks {
-        background-color: #f0f0f0;
+
+    .tareas,
+    .pendingTasks {
+        background-color: #ffb100;
         border-radius: 8px;
         padding: 2rem;
         max-width: 500px;
+        height: fit-content;
+        margin-top: 2rem;
 
-        h3{
+        h3 {
             color: #000;
         }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
     }
+
+    .pendingTasks {
+        height: 24rem;
+        margin-top: 2rem;
+        overflow-y: auto;
+
+        h2 {
+            font-size: 30px;
+        }
+    }
+
 }
 
+/* Estilos para el scrollbar */
+.pendingTasks::-webkit-scrollbar {
+    width: 12px;
+    /* Ancho de la barra de desplazamiento */
 
-@media only screen and (max-width: 768px) {
-    .modificacion {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .tareas, .pendingTasks {
-        flex-basis: calc(100% - 2rem);
-        margin-bottom: 2rem;
-    }
 }
 
-@media only screen and (max-width: 600px) {
-    .containerToDo {
-        padding: 1rem;
-    }
+.pendingTasks::-webkit-scrollbar-track {
+    background: #444;
+    /* Color de fondo de la pista */
+    border-radius: 10px;
+}
 
-    h1 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
+.pendingTasks::-webkit-scrollbar-thumb {
+    background-color: #ffcc00;
+    /* Color de la barra de desplazamiento */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    border: 3px solid #444;
+    /* Espacio alrededor de la barra de desplazamiento */
+}
 
-    h2 {
-        font-size: 1.25rem;
-        margin-bottom: 1rem;
-    }
-
-    button {
-        font-size: 0.9rem;
-    }
+.pendingTasks::-webkit-scrollbar-thumb:hover {
+    background-color: #ffcc00ad;
+    /* Color de la barra de desplazamiento al pasar el ratón */
 }
