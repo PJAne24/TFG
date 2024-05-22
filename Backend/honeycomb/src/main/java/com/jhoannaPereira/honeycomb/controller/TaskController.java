@@ -64,14 +64,9 @@ public class TaskController {
         return taskService.findByIdUser(userId);
     }
 
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable String id){
         taskService.deleteById(id);
-    }
-
-    @PutMapping("/actualizar")
-    public void update(@RequestBody Task task){
-        taskService.save(task);
     }
 
 

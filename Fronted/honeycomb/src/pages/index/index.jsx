@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Main from '../main/main.jsx';
-import Profile from '../profile.jsx';
+import Profile from '../profile/profile.jsx';
 
 //images
 import ToDO from '../../assets/toDO.png'
@@ -24,8 +24,8 @@ const Index = () => {
   const calendarNav = () => {
     navigate('/calendar');
   };
-  const notesNav = () => {
-    navigate('/notes');
+  const drawNav = () => {
+    navigate('/draw');
   };
 
 
@@ -51,7 +51,7 @@ const Index = () => {
               <button onClick={calendarNav}><img src={calendar} alt="" className='icons' />  Calendar</button>
             </div>
             <div>
-              <button onClick={notesNav}><img src={notes} alt="" className='icons' />   Notes</button>
+              <button onClick={drawNav}><img src={notes} alt="" className='icons' />   Draw</button>
             </div>
           </div>
         </section>

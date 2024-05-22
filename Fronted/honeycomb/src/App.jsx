@@ -13,6 +13,7 @@ import Login from './components/login/login.jsx';
 import ToDo from './pages/toDo/toDo.jsx';
 import Draw from './pages/notes/draw.jsx';
 import Tasks from './pages/tasks/task.jsx'
+import Credits from './pages/credits/credit.jsx'
 
 const ProtectedRoute = ({ element, isAuthenticated }) => {
   return isAuthenticated ? element : <Navigate to="/login" />;
@@ -56,6 +57,10 @@ const App = () => {
     {
       path: "/tasks",
       element: <ProtectedRoute element={<Tasks />} isAuthenticated={isAuthenticated} />
+    },
+    {
+      path: "/credits",
+      element: <ProtectedRoute element={<Credits />} isAuthenticated={isAuthenticated} />
     }
   ]);
 

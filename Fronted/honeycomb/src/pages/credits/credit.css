@@ -1,0 +1,52 @@
+.containerCredit {
+    display: grid;
+    height: calc(100vh - 10vh);
+    justify-items: center;
+    align-content: center;
+    position: relative;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.647);
+
+    span {
+        width: fit-content;
+        color: white;
+        font-size: 150px;
+        cursor: pointer;
+        transition: all 2s ease 0s;
+    }
+
+    #titulo:hover {
+        text-shadow: 0px 0px 10px;
+    }
+
+    #titulo {
+        display: block;
+        white-space: nowrap;
+        border-right: 3px solid;
+        width: 5ch;
+        animation: typing 1.2s steps(5),
+            blink .5s infinite step-end alternate;
+        overflow: hidden;
+        margin: 10px;
+        background-color: rgb(0, 0, 0);
+        padding: 50px;
+        box-shadow: -11px 10px 20px 0px black;
+    }
+}
+
+
+.containerCredit.active span {
+    width: 16ch;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}

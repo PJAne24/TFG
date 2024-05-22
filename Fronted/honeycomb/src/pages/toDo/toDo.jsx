@@ -65,8 +65,7 @@ const menuPrincipal = () => {
         }));
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async () => {
         const userId = sessionStorage.getItem('userId');
         if (!userId) {
             console.error("User ID is not available in session storage");
@@ -93,15 +92,9 @@ const menuPrincipal = () => {
 
 
     const eliminarTarea = async (taskId) => {
-        if (!taskId) {
-            console.error("Task ID is undefined");
-            return;
-        }
-
         try {
-            console.log(`Deleting task with ID: ${taskId}`);
-            await axios.delete(`${SERVER_URL}${API_ENDPOINT_DELETE}/${taskId}`);
-            setTasks(tasks.filter((task) => task._id !== taskId));
+            await axios.delete(`${SERVER_URL}/Task/delete/${taskId}`);
+            setTasks(tasks.filter(task => task.id !== taskId));
         } catch (error) {
             console.error("Error deleting task:", error);
         }

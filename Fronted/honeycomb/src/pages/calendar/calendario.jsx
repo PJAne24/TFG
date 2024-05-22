@@ -25,7 +25,7 @@ const Calendario = () => {
         }
         try {
             console.log(userId)
-            // const response = await axios.get(`${SERVER_URL}/Events/user/${userId}`);
+            // const response = await axios.get(`${SERVER_URL}/Event/user/${userId}`);
             console.log("Fetched events:", response.data);
             setEvents(response.data);
         } catch (error) {

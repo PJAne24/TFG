@@ -20,6 +20,7 @@ public class User {
     private String email;
     private String password;
     private int role;
+    private String profileImage; // Base64 encoded image
 
     public User() {
     }

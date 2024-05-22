@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @RestController
-@RequestMapping("/Events")
+@RequestMapping("/Event")
 public class EventController {
 
     private static final Logger logger = Logger.getLogger(EventController.class.getName());

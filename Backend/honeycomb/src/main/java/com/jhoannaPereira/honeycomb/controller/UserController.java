@@ -1,5 +1,6 @@
 package com.jhoannaPereira.honeycomb.controller;
 
+import com.jhoannaPereira.honeycomb.model.Task;
 import com.jhoannaPereira.honeycomb.model.User;
 import com.jhoannaPereira.honeycomb.repository.UserRepository;
 import com.jhoannaPereira.honeycomb.service.UserService;
@@ -46,6 +47,18 @@ public class UserController {
     public User findById(@PathVariable String id){
         return userService.findById(id).get(); //hay que colocar el .get porque hemos colocado un optional
     }
-
+    @PutMapping("/updateProfileImage")
+    public ResponseEntity<String> updateProfileImage(@RequestParam String userId, @RequestParam String image) {
+        try {
+            User user = userService.findById(userId)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+            user.setProfileImage(image);
+            userService.save(user);
+            return ResponseEntity.ok("Profile image updated successfully");
+        } catch (Exception e) {
+            logger.severe("Error updating profile image: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating profile image");
+        }
+    }
 
 }
