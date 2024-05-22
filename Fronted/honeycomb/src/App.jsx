@@ -11,7 +11,7 @@ import Calendario from './pages/calendar/calendario.jsx';
 import PanelControl from './admin/panelControl.jsx';
 import Login from './components/login/login.jsx';
 import ToDo from './pages/toDo/toDo.jsx';
-import Notes from './pages/notas.jsx';
+import Draw from './pages/notes/draw.jsx';
 import Tasks from './pages/tasks/task.jsx'
 
 const ProtectedRoute = ({ element, isAuthenticated }) => {
@@ -50,8 +50,8 @@ const App = () => {
       element: <ProtectedRoute element={<ToDo />} isAuthenticated={isAuthenticated} />
     },
     {
-      path: "/notes",
-      element: <ProtectedRoute element={<Notes />} isAuthenticated={isAuthenticated} />
+      path: "/draw",
+      element: <ProtectedRoute element={<Draw />} isAuthenticated={isAuthenticated} />
     },
     {
       path: "/tasks",

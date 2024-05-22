@@ -56,7 +56,7 @@ const hexagon = () => {
             <div className='dos'>
                 <div className="hexagonBack">
                     <div className='hexagon'>
-                        <span className="titleHexagon"><Link to="/notes" className='titleHexagon'>Notes</Link></span>
+                        <span className="titleHexagon"><Link to="/draw" className='titleHexagon'>Draw</Link></span>
                     </div>
                 </div>
                 <div className="hexagonBack">
