@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link  } from "react-router-dom";
 import logo from '../../assets/Logo.png';
 import './main.css';
-import { Link } from "react-router-dom";
 
 const hexagon = () => {
     const navigate = useNavigate();

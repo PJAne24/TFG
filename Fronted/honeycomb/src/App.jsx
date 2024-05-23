@@ -11,9 +11,9 @@ import Calendario from './pages/calendar/calendario.jsx';
 import PanelControl from './admin/panelControl.jsx';
 import Login from './components/login/login.jsx';
 import ToDo from './pages/toDo/toDo.jsx';
-import Draw from './pages/notes/draw.jsx';
-import Tasks from './pages/tasks/task.jsx'
-import Credits from './pages/credits/credit.jsx'
+import Draw from './pages/draw/draw.jsx';
+import Tasks from './pages/task/task.jsx'
+import Credits from './pages/credit/credit.jsx'
 
 const ProtectedRoute = ({ element, isAuthenticated }) => {
   return isAuthenticated ? element : <Navigate to="/login" />;

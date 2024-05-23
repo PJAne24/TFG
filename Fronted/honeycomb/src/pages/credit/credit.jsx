@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './credit.css';
 import Header from "../../components/header/header.jsx";
+import './credit.css';
 
 const Credit = () => {
     const [titulo, setTitulo] = useState("Jane.");
