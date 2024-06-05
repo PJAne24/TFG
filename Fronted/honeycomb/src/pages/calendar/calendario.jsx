@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, dayjsLocalizer } from 'react-big-calendar';
-import { useSessionStorage } from '../../admin/useSessionStorage.jsx';
+import { useSessionStorage } from '../../controlPanel/useSessionStorage.jsx';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Header from '../../components/header/header.jsx';
 import dayjs from 'dayjs';

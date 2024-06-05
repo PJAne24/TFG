@@ -1,6 +1,6 @@
 // src/main.jsx
-import React, { useState, useEffect } from 'react';
-import { useSessionStorage } from './admin/useSessionStorage.jsx';
+import React, { useEffect } from 'react';
+import { useSessionStorage } from './controlPanel/useSessionStorage.jsx';
 import ReactDOM from 'react-dom/client';
 import './App.css';
 
@@ -8,7 +8,6 @@ import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 
 import Index from './pages/index/index.jsx';
 import Calendario from './pages/calendar/calendario.jsx';
-import PanelControl from './admin/panelControl.jsx';
 import Login from './components/login/login.jsx';
 import ToDo from './pages/toDo/toDo.jsx';
 import Draw from './pages/draw/draw.jsx';
@@ -37,10 +36,6 @@ const App = () => {
     {
       path: "/calendar",
       element: <ProtectedRoute element={<Calendario />} isAuthenticated={isAuthenticated} />
-    },
-    {
-      path: "/admin",
-      element: <ProtectedRoute element={<PanelControl />} isAuthenticated={isAuthenticated} />
     },
     {
       path: "/login",

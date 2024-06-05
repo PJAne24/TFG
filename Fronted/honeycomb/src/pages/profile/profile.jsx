@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useSessionStorage } from '../../admin/useSessionStorage';
+import { useSessionStorage } from '../../controlPanel/useSessionStorage';
 import axios from 'axios';
 import './profile.css';
 

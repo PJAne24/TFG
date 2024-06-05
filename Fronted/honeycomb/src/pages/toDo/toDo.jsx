@@ -1,6 +1,6 @@
 import "./toDo.css";
 import { React, useState, useEffect } from "react";
-import { useSessionStorage } from "../../admin/useSessionStorage.jsx";
+import { useSessionStorage } from "../../controlPanel/useSessionStorage.jsx";
 import lapiz from '../../assets/pen.png'
 
 import axios from "axios";

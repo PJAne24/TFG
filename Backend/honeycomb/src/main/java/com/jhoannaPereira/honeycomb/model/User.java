@@ -16,8 +16,10 @@ public class User {
     @NonNull
     @Indexed(unique = true)
     private String name;
+    @NonNull
     @Indexed(unique = true)
     private String email;
+    @NonNull
     private String password;
     private int role;
     private String profileImage; // Base64 encoded image

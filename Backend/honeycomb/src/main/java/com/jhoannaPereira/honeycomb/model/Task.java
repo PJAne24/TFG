@@ -11,16 +11,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("taskmaker")
 @Data
-@AllArgsConstructor
 public class Task {
 
     @Id
     private String id;
-
-    @OneToMany
-    @JoinColumn(name = "id",referencedColumnName = "idUser")
-    private User user;
-
     private String idUser;
     private String title;
     private String description;
